@@ -11,7 +11,7 @@ __Behaviours:__ [`gen_server`](gen_server.md).
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#accepts-2">accepts/2</a></td><td></td></tr><tr><td valign="top"><a href="#close-1">close/1</a></td><td></td></tr><tr><td valign="top"><a href="#denies-2">denies/2</a></td><td></td></tr><tr><td valign="top"><a href="#filter-3">filter/3</a></td><td></td></tr><tr><td valign="top"><a href="#open-1">open/1</a></td><td></td></tr><tr><td valign="top"><a href="#start_link-1">start_link/1</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#accepts-2">accepts/2</a></td><td></td></tr><tr><td valign="top"><a href="#close-1">close/1</a></td><td></td></tr><tr><td valign="top"><a href="#compile-1">compile/1</a></td><td></td></tr><tr><td valign="top"><a href="#denies-2">denies/2</a></td><td></td></tr><tr><td valign="top"><a href="#filter-3">filter/3</a></td><td></td></tr><tr><td valign="top"><a href="#open-1">open/1</a></td><td></td></tr><tr><td valign="top"><a href="#start_link-2">start_link/2</a></td><td></td></tr></table>
 
 
 <a name="functions"></a>
@@ -30,6 +30,15 @@ __Behaviours:__ [`gen_server`](gen_server.md).
 
 `close(Pid) -> any()`
 
+<a name="compile-1"></a>
+
+### compile/1 ###
+
+<pre><code>
+compile(Data::iodata()) -&gt; {ok, pid()} | {error, term()}
+</code></pre>
+<br />
+
 <a name="denies-2"></a>
 
 ### denies/2 ###
@@ -46,11 +55,17 @@ __Behaviours:__ [`gen_server`](gen_server.md).
 
 ### open/1 ###
 
-`open(File) -> any()`
+<pre><code>
+open(File::iodata()) -&gt; {ok, pid()} | {error, term()}
+</code></pre>
+<br />
 
-<a name="start_link-1"></a>
+<a name="start_link-2"></a>
 
-### start_link/1 ###
+### start_link/2 ###
 
-`start_link(File) -> any()`
+<pre><code>
+start_link(FileOrData::iodata(), Type::file | data) -&gt; {ok, pid()} | {error, term()}
+</code></pre>
+<br />
 
