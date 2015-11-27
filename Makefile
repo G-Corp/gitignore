@@ -17,3 +17,6 @@ EDOC_OPTS = {doclet, edown_doclet} \
 						, {image, ""} \
 						, {top_level_readme, {"./README.md", "https://github.com/botsunit/${PROJECT}"}}
 
+dev: deps app
+	@erl -pa ebin include deps/*/ebin deps/*/include
+
