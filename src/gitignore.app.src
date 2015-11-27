@@ -1,0 +1,7 @@
+{application, gitignore, [
+	{description, "A .gitignore parser for Erlang"},
+	{vsn, "0.0.1"},
+	{modules, []},
+	{registered, []},
+	{applications, [kernel, stdlib]}
+]}.
