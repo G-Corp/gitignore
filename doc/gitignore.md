@@ -15,7 +15,8 @@ __Behaviours:__ [`gen_server`](gen_server.md).
 Return true if the given <tt>File</tt> is accepted, false otherwise.</td></tr><tr><td valign="top"><a href="#close-1">close/1</a></td><td>
 Terminate the gitignore gen_server for the  given <tt>Pid</tt></td></tr><tr><td valign="top"><a href="#compile-1">compile/1</a></td><td>
 Compile the given list of gitignore patterns.</td></tr><tr><td valign="top"><a href="#denies-2">denies/2</a></td><td>
-Return true if the given <tt>File</tt> is denied, false otherwise.</td></tr><tr><td valign="top"><a href="#open-1">open/1</a></td><td>
+Return true if the given <tt>File</tt> is denied, false otherwise.</td></tr><tr><td valign="top"><a href="#filter-3">filter/3</a></td><td>
+Filter the list of file.</td></tr><tr><td valign="top"><a href="#open-1">open/1</a></td><td>
 Open en compile the given gitignore file.</td></tr><tr><td valign="top"><a href="#start_link-2">start_link/2</a></td><td></td></tr></table>
 
 
@@ -66,6 +67,17 @@ denies(Pid::pid(), File::string()) -&gt; true | false
 <br />
 
 Return true if the given `File` is denied, false otherwise
+
+<a name="filter-3"></a>
+
+### filter/3 ###
+
+<pre><code>
+filter(Pid::pid(), Files::list(), Status::accepts | denies) -&gt; list()
+</code></pre>
+<br />
+
+Filter the list of file
 
 <a name="open-1"></a>
 

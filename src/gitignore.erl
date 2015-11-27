@@ -7,7 +7,8 @@
          , compile/1
          , close/1
          , accepts/2
-         , denies/2]).
+         , denies/2
+         , filter/3]).
 
 %% gen_server.
 -export([init/1]).
@@ -68,6 +69,21 @@ accepts(Pid, File) ->
 -spec denies(Pid::pid(), File::string()) -> true | false.
 denies(Pid, File) ->
   gen_server:call(Pid, {denies, File}).
+
+% @doc
+% Filter the list of file 
+% @end
+-spec filter(Pid::pid(), Files::list(), Status::accepts | denies) -> list().
+filter(Pid, Files, Status)  when Status =:= accepts;
+                                 Status =:= denies ->
+  lists:foldl(fun(File, Acc) ->
+                  case gen_server:call(Pid, {Status, File}) of
+                    true ->
+                      [File|Acc];
+                    false ->
+                      Acc
+                  end
+              end, [], Files).
 
 % @hidden
 init(Data) ->
