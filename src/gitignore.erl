@@ -42,7 +42,7 @@ compile(Data) when is_list(Data)->
 start_link(File, file) ->
   case file:read_file(File) of
     {ok, Data} ->
-      Data1 = string:tokens(eutils:to_string(Data), "\n\r"),
+      Data1 = string:tokens(bucs:to_string(Data), "\n\r"),
       start_link(Data1, data);
     E -> E
   end;
@@ -88,7 +88,7 @@ filter(Pid, Files, Status)  when Status =:= accepts;
 % @hidden
 init(Data) ->
   {ok, lists:foldl(fun(Line, Acc) ->
-                       Line1 = eutils:to_string(Line),
+                       Line1 = bucs:to_string(Line),
                        Line2 = string:strip(Line1, both, 32),
                        Line3 = string:strip(Line2, both, 9),
                        case Line3 of
@@ -166,3 +166,4 @@ do_accepts(File, #state{negatives = Negatives,
                              end
                          end, Positives)
   end.
+

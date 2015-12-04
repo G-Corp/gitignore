@@ -61,7 +61,7 @@ teardown(_) ->
   ok.
 
 t_default() ->
-  {ok, Pid} = gitignore:compile(string:tokens(eutils:to_string(?GITIGNORE), "\n\r")),
+  {ok, Pid} = gitignore:compile(string:tokens(bucs:to_string(?GITIGNORE), "\n\r")),
   ?assert(gitignore:accepts(Pid, "src/gitignore.erl")),
   ?assert(gitignore:accepts(Pid, "nonexistent/foo/accepts.txt")),
   ?assert(gitignore:accepts(Pid, "othernonexistent/toto/what/foo/accepts.txt")),
